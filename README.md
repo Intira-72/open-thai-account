@@ -12,3 +12,6 @@
 ## ขั้นตอนการติดตั้งโมดูล
 
 * Create New Database
+* Install Module Account
+* Install INECO Thailand - Accounting
+* Setup Chart of Account to INECO Thailand - Accounting
