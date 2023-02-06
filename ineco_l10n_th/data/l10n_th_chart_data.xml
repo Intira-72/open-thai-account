@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="account_reports_ineco_th_statements_menu" name="Thailand" parent="account.menu_finance_reports"
+              sequence="0" groups="account.group_account_readonly"/>
+    <!-- ACCOUNT TYPES -->
+
+<!--
+    <record model="account.account.type" id="data_account_ineco_asset">
+        <field name="name">Asset</field>
+        <field name="type">other</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+    <record model="account.account.type" id="data_account_ineco_View">
+        <field name="name">View</field>
+        <field name="type">other</field>
+        <field name="internal_group">off_balance</field>
+    </record>
+
+
+    <record model="account.account.type" id="data_account_ineco_liability">
+        <field name="name">Liability</field>
+        <field name="type">other</field>
+        <field name="internal_group">liability</field>
+    </record>
+
+    <record id="data_account_ineco_reconcile" model="account.account.type">
+        <field name="name">Reconciled</field>
+        <field name="internal_group">off_balance</field>
+    </record>
+
+
+    <record id="data_account_ineco_reconcile_01" model="account.account.type">
+        <field name="name">Reconciled 01</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+    <record id="data_account_ineco_reconcile_02" model="account.account.type">
+        <field name="name">Reconciled 02</field>
+        <field name="internal_group">liability</field>
+    </record>
+
+    <record id="data_account_ineco_reconcile_03" model="account.account.type">
+        <field name="name">Reconciled 03</field>
+        <field name="internal_group">equity</field>
+    </record>
+
+    <record id="data_account_ineco_reconcile_04" model="account.account.type">
+        <field name="name">Reconciled 04</field>
+        <field name="internal_group">income</field>
+    </record>
+
+    <record id="data_account_ineco_reconcile_05" model="account.account.type">
+        <field name="name">Reconciled 05</field>
+        <field name="internal_group">expense</field>
+    </record>
+
+    -->
+
+
+    <!-- CHART OF Template -->
+
+    <record id="chart" model="account.chart.template">
+        <field name="name">INECO Thailand - Chart of Accounts</field>
+        <field name="cash_account_code_prefix">1100</field>
+        <field name="bank_account_code_prefix">1110</field>
+        <field name="transfer_account_code_prefix">16</field>
+        <field name="currency_id" ref="base.THB"/>
+    </record>
+</odoo>

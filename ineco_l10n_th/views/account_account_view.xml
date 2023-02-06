@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="ineco_account_account_search_form" model="ir.ui.view">
+           <field name="name">ineco.account.account.search.form</field>
+           <field name="model">account.account</field>
+           <field name="inherit_id" ref="account.view_account_search"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//searchpanel[@class='account_root']" position="replace">
+                   <searchpanel>
+                       <field name="parent_id" icon="fa-filter" />
+                   </searchpanel>
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>
