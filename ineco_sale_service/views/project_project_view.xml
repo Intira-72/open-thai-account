@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="service_project_project_form" model="ir.ui.view">
+            <field name="name">service.project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Pickings">
+                        <field name="picking_ids" readonly="1">
+                            <tree string="Pickings">
+                                <field name="name" />
+                                <field name="scheduled_date" />
+                                <field name="partner_id" />
+                                <field name="product_string" />
+                                <field name="user_id" />
+                                <field name="state" />
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
