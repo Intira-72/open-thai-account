@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="service_stock_picking_form" model="ir.ui.view">
+            <field name="name">service.stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="is_post_cost" invisible="1" />
+                    <field name="is_required_analytic_account" readonly="1" invisible="1"/>
+                    <field name="analytic_account_id"
+                           attrs="{'invisible': [('is_required_analytic_account','=',False)],'required':[('is_required_analytic_account','=',True)]}"/>
+                </xpath>
+
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="post_costing" string="Post Cost" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|','&amp;',('state','=','done'),('is_required_analytic_account','=',False),('is_post_cost','=',True)]}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

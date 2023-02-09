@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ineco_service_sale_order_line_view_form" model="ir.ui.view">
+            <field name="name">ineco_service_sale_order_line_view_form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/tree" position="attributes">
+                    <attribute name="editable"></attribute>
+                </xpath>
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/form/group"
+                       position="inside">
+                    <group string="Man Power">
+                        <label for="manday"/>
+                        <div name="manday">
+                            <field name="manday" class="oe_inline"/>
+                            days
+                        </div>
+                        <label for="assigned_ids"/>
+                        <div name="assigned_ids">
+                            <field name="assigned_ids" widget="many2many_avatar_user" class="oe_inline" required="1"/>
+                        </div>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/form/div[@name='invoice_lines']"
+                       position="before">
+                    <notebook>
+                        <page string="@ Item">
+                            <div>Unit Price = (Sum of Items)+(Sum of Day * Man Day)+(Sum of Project)</div>
+                            <field name="line_item_ids">
+                                <tree string="Item" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="uom_id"/>
+                                    <field name="price_subtotal" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="@ Day">
+                            <div>Unit Price = (Sum of Items)+(Sum of Day * Man Day)+(Sum of Project)</div>
+                            <field name="line_day_ids">
+                                <tree string="Item" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="price_unit" sum="Total"/>
+                                    <field name="uom_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="@ Project">
+                            <div>Unit Price = (Sum of Items)+(Sum of Day * Man Day)+(Sum of Project)</div>
+                            <field name="line_project_ids">
+                                <tree string="Item" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="price_unit" sum="Total"/>
+                                    <field name="uom_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/form/div[@name='invoice_lines']"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                    <attribute name="attrs"></attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_ineco_sale_service_order_management_form" model="ir.ui.view">
+            <field name="name">ineco.sale.service.order.management.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_management.sale_order_form_quote"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='optional_products']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
