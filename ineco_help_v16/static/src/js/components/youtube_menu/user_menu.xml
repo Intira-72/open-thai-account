@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="ineco_help_v16.YoutubeMenu" owl="1">
+        <div id="youtube_button" class="o_ineco_systray_item dropdown">
+            <a class="dropdown-toggle o-no-caret o-dropdown--narrow"
+               data-toggle="dropdown"
+               data-display="static"
+               t-on-click.prevent.stop="onClick"
+               aria-expanded="false" title="วิธีการใช้งาน" href="#" role="button">
+                <i class="fa fa-youtube-play" role="img" aria-label="วิธีการใช้งาน"/>
+                <span class="o_notification_counter badge badge-pill"/>
+            </a>
+            <div class="o_mail_systray_dropdown dropdown-menu dropdown-menu-right" role="menu">
+                <div class="o_mail_systray_dropdown_items youtube-views"/>
+            </div>
+        </div>
+    </t>
+
+</templates>
